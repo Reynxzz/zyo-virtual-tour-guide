@@ -1,2 +1,2 @@
 # zyo-virtual-tour-guide
-Zyo: AI Virtual Tour Guide for personalized traveling
+Zyo merupakan aplikasi berbasis AI yang berperan sebagai pemandu wisata untuk menemani perjalanan wisatawan mancanegara secara virtual. Dengan Zyo, wisatawan mancanegara dapat mengenal lebih dekat dengan tempat-tempat wisata dan keragaman budaya yang ada di Indonesia. Zyo akan merekomendasikan tempat menarik, memandu hingga ke tujuan wisata, dan memberikan pengetahuan baru mengenai tempat tersebut beserta budaya yang ada di sekitar tempat tersebut.
