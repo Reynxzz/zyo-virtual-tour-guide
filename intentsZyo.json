@@ -1,0 +1,133 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
+         "responses": ["Hello! I'm Zyo :)", "Good to see you again!", "Hi there, how can I help you?"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day"],
+         "responses": ["Sad to see you go :(", "Talk to you later", "Goodbye!"],
+         "context_set": ""
+        },
+        {"tag": "age",
+         "patterns": ["how old", "how old is zyo", "what is your age", "how old are you", "age?"],
+         "responses": ["I am 20 years old!", "20 years young!"],
+         "context_set": ""
+        },
+        {"tag": "name",
+         "patterns": ["what is your name", "what should I call you", "whats your name?"],
+         "responses": ["You can call me Zyo", "I'm Zyo!", "I'm Zyo! Your Virtual Tour Guide!"],
+         "context_set": ""
+        },
+        {"tag": "weather_faq",
+         "patterns": ["What's the weather like in Bali?", "How is the weather in Bali?", "How does the weather in Bali?", "weather in bali", "bali's weather", "bali is hot", "bali is cold"],
+         "responses": ["Bali is generally hot, sunny and humid and typically the rainy season is between November - Feb/March. However rain usually pours heavily for a short duration in the afternoon or during the night, leaving the rest of the day warm and sunny (around 90 degrees) and cools off at night"],
+         "context_set": ""
+        },
+        {"tag": "visa_faq",
+         "patterns": ["Do I need a VISA to enter Bali?", "visa required", "Is a VISA required to enter Bali?", "Is a VISA necessary to enter Bali?", "visa necessary?"],
+         "responses": ["Indonesia has a free 30-Day visa-on-arrival system (tourist visa). If you would like to stay more than 30 days, then you will need to pay $35 at the airport when you arrive at the airport for the option to extend with an Indonesian agent for up to 60-days"],
+         "context_set": ""
+        },
+        {"tag": "safe_faq",
+         "patterns": ["Is Bali Safe?", "Is there much crime?", "safety in bali", "is bali secure?", "crime in bali"],
+         "responses": ["Bali has always been peaceful, As for safety in the streets, there is very little violent crime in Bali, especially in Ubud - just be cautious against pickpockets in the beach areas and with handbags on motorbikes late at night"],
+         "context_set": ""
+        },
+        {"tag": "drinkwater_faq",
+         "patterns": ["Can I drink the water?", "Bali's water", "water drinkable?", "drink water in Bali"],
+         "responses": ["Always drink bottled or filtered water. 99% of restaurants in Bali use bottled water for all cooking purposes and it is advisable to drink and brush teeth with bottled water to avoid 'Bali Belly' - a mild dysentery which can occur but passes in a few days."],
+         "context_set": ""
+        },
+        {"tag": "clothing_faq",
+         "patterns": ["What clothing can I wear in Bali?", "what should i wear?", "clothes to wear in bali", "bikini allowed?", "baggy clothes"],
+         "responses": ["Where you will stay will 99% of the time be air conditioned or with a fan, but outside it is hot and humid. Flip flops or comfortable walking sandals are a must with light clothing like t-shirts and shorts to keep you cool are recommended and a light pullover in the evenings if you are riding a motorbike. When entering temples you must be respectful and have your shoulders covered and wear a sarong (for men and women)"],
+         "context_set": ""
+        },
+        {"tag": "foodprice_faq",
+         "patterns": ["What's the normal price for food in Bali?", "food price in bali", "food cheap or expensive?", "price of the food?"],
+         "responses": ["Local Indonesian food like nasi campur and nasi/mie goreng will cost you a lot less, around IDR 30,000 (USD $2.50), a meal at a mid range restaurant in will cost between IDR 100,000-250,000 ($12-20) and fine dining restaurants could cost anywhere between IDR 500,000 and 1,000,000+ ($40-$80)."],
+         "context_set": ""
+        },
+        {"tag": "rentcar_faq",
+         "patterns": ["Should I rent a car?", "what car to rent?", "car rental available?", "rent a car"],
+         "responses": ["It is not necessary, nor advisable to rent a car in Bali. Taxis will cost about $25 - $30 to take you from the Airport at Denpasar to Ubud (approximately 1.5-hour drive, depending on traffic). Most hotels offer a free shuttle or taxi service to take you to the town center in Ubud. You can also hire a private driver and car for $40 - $60 per day for day excursions."],
+         "context_set": ""
+        },
+        {"tag": "buddhist_faq",
+         "patterns": ["Is Bali a Buddhist country?", "religion in bali", "Buddhist", "bali islam?"],
+         "responses": ["Though Bali is a multi-religious island, most of the people on the island follow Balinese Hinduism which is a fusion of Indian and local Bali customs and culture. Muslim, Christianity, and Buddhism are a few other minority religions on the island."],
+         "context_set": ""
+        },
+        {"tag": "wifi_faq",
+         "patterns": ["Does Bali airport have WiFi?", "wifi in airport", "airport wifi"],
+         "responses": ["Denpasar Ngurah International Airport in Bali has free wifi and it is easy to connect to the network too. The free session lasts for 240 minutes."],
+         "context_set": ""
+        },
+        {"tag": "airportcount_faq",
+         "patterns": ["How many airports does Bali have?", "airport in bali", "bali airport", "airport"],
+         "responses": ["There is only one airport in Bali i.e. Denpasar Ngurah International Airport. The airport has two terminals designated to domestic and international flights. The airport has all the modern facilities to provide convenience and comfort to the passengers."],
+         "context_set": ""
+        },
+        {"tag": "language_faq",
+         "patterns": ["What language do they speak in Bali?", "bali language", "speak in bali", "bahasa bali", "bahasa indonesia", "language speak"],
+         "responses": ["Bahasa Bali and Bahasa Indonesian are the most prominent languages on the island. Most people in Balinese are bilingual and speak both these languages. A fewer people are fluent in the English language."],
+         "context_set": ""
+        },
+        {"tag": "exchange_faq",
+         "patterns": ["What’s the exchange rate in Indonesia?", "exchange rate", "What is the current currency exchange rate in Indonesia?"],
+         "responses": ["The most popular exchange rate in Indonesia is the USD to IDR rate. The national currency of Bali is the Indonesian Rupiah (Rp)."],
+         "context_set": ""
+        },
+        {"tag": "bestthingkid_faq",
+         "patterns": ["What are the best things to do in Bali with kids?", "Which activities in Bali are the best for families?", "What are the finest family-friendly activities in Bali?", "bali for kids", "bali for family", "kids in bali", "traveling with kids"],
+         "responses": ["You can take your kids to Bali Safari & Marine Park which is one of the most visited theme parks on the island. Dream Museums is another popular tourist attraction in Bali."],
+         "context_set": ""
+        },
+        {"tag": "casino_faq",
+         "patterns": ["Does Bali have a casino?", "bali casino", "casino in bali", "casino available", "casino"],
+         "responses": ["No, Bali does not have a casino. There are no sanctioned casinos or poker rooms in Bali. In fact, the activities of gambling and betting are illegal in Bali as it is against their religious principles."],
+         "context_set": ""
+        },
+        {"tag": "whattoeat_faq",
+         "patterns": ["What to eat in Bali?", "eat in bali", "best food in bali", "bali food", "delicious food in bali"],
+         "responses": ["When you are in Bali, you must try the authentic Balinese food as it is one of its kind and a lot of travelers visit Bali just to try the local delicacies. You must try dishes like Sate, Nasi Ayam, and Nasi Campur, Bebek and Ayam Betutu, Babi Guling and Traditional cakes and desserts."],
+         "context_set": ""
+        },
+        {"tag": "bestressort_faq",
+         "patterns": ["Which are the best beach resorts in Bali?","bali resort", "best resort in bali", "bali resorts", "recommended resorts"],
+         "responses": ["If you are a beach lover and are planning to stay at a beach resort in Bali, then the best options for you are The Mulia, St.Regis Bali, The Royal Purnama and W Bali."],
+         "context_set": ""
+        },
+        {"tag": "besthotel_faq",
+         "patterns": ["Which are the best hotels in Seminyak", "best hotel in seminyak", "best hotel", "recommended hotel"],
+         "responses": ["The best hotels in Seminyak are Horison Seminyak, The Haven Bali Seminyak, Courtyard by Marriott Bali Seminyak Resort and Harris Hotel Seminyak."],
+         "context_set": ""
+        },
+        {"tag": "timevisit_faq",
+         "patterns": ["When is the best time to go?", "best time to go", "what time to go", "time to come", "what year to come to bali"],
+         "responses": ["Bali is a spectacular destination to visit all year round with stunning tropical scenery and endless opportunities for adventure. While temperatures tend to average 27 °C throughout the year, we recommend visiting between May to August for optimal tropical conditions without the holiday crowds."],
+         "context_set": ""
+        },
+        {"tag": "corona_faq",
+         "patterns": ["Is there Corona Virus in Bali?", "corona in bali", "corona", "covid 19", "bali corona covid", "bali virus"],
+         "responses": ["Bali is in the midst of vaccinations, and most of the main tourist areas have already been fully vaccinated. During the Pandemic, numbers of infections stayed fairly low on the island. All resorts and public areas maintain good health protocols, using disinfectants and wiping down tables etc."],
+         "context_set": ""
+        },
+        {"tag": "taxis_faq",
+         "patterns": ["What taxis do you catch in Bali?", "taxi to go", "what taxi to ride", "bali taxi"],
+         "responses": ["The best taxis are generally Bluebird, as they are metered and monitored. If you are willing to barter, you can always have someone else drive you around. There are usually plenty of willing drivers outside most resorts."],
+         "context_set": ""
+        },
+        {"tag": "illegal_faq",
+         "patterns": ["What is illegal in Bali?", "drugs is illegal", "illegal in bali", "drugs"],
+         "responses": ["Drugs. Bali is very, very strict on them, and if you are caught, there is basically no defence. You will end up in jail."],
+         "context_set": ""
+        },
+        {"tag": "smoke_faq",
+         "patterns": ["Can i smoke in Bali?", "smoking in bali", "cigarettes in bali", "can i smoke?"],
+         "responses": ["Many Balinese people smoke, and cigarettes are quite cheap, although not the same quality as home."],
+         "context_set": ""
+        }
+   ]
+}
