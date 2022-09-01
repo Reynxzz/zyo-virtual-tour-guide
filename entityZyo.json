@@ -1,0 +1,15 @@
+{"entity": [
+        {"tag": "city/regency",
+         "patterns": ["Badung", "Bangli", "Buleleng", "Gianyar", "Jembrana", "Karangasem", "Klungkung", "Tabanan", "Denpasar",
+        "Ubud", "Kuta", "Canggu", "Singaraja", "Jimbaran", "Bedugul", "Cengiling", "Banjar", "Kintamani", "Umalas", "Nusa Dua", "Uluwatu"]
+        },
+        {"tag": "hotel/resort",
+         "patterns": ["Courtyard", "Hotel Indigo", "Viceroy Bali", "Potato Head Studios", "Prama Sanur", "Hard Rock Hotel", "Mandapa Ritz-Carlton", "Royal Tulip Springhill", "Grand Mirage Resort",
+        "Lv8 Resort Hotel", "The Udaya Resorts & Spa", "Bali Dynasty Resort", "Element by Westin Bali Ubud", "RIMBA Jimbaran", "AYANA Resort"]
+        },
+        {"tag": "beach",
+         "patterns": ["Seminyak Beach", "Nusa Dua Beach", "Echo Beach", "Jimbaran Bay", "Thomas Beach", "Sanur Beach", "Keramas Beach", "Amed Beach", "Bingin Beach",
+        "Sundays Beach Club ", "Medewi Beach", "Balangan Beach", "Blue Lagoon", "Padang Padang Beach", "Balian Beach"]
+        }
+   ]
+}

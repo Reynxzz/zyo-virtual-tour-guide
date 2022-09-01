@@ -1,3 +1,4 @@
+import streamlit as st
 import nltk
 #nltk.download('popular')
 from nltk.stem import WordNetLemmatizer
@@ -9,7 +10,7 @@ model = load_model('model_Zyo.h5')
 import json
 import random
 
-intents = json.loads(open('intentsZyo.json').read())
+intents = json.loads(open('intentsZyoLarge.json').read())
 words = pickle.load(open('texts.pkl','rb'))
 labels = pickle.load(open('labels.pkl','rb'))
 def clean_up_sentence(sentence):
@@ -57,15 +58,18 @@ def chatbot_response(msg):
     ints = predict_class(msg, model)
     res = getResponse(ints, intents)
     return res
-from flask import Flask, render_template, request
-app = Flask(__name__)
-app.static_folder = 'static'
-@app.route("/")
-def home():
-    return render_template("index.html")
-@app.route("/get")
-def get_bot_response():
-    userText = request.args.get('msg')
-    return chatbot_response(userText)
-if __name__ == "__main__":
-    app.run()
+
+
+# STREAMLIT APP
+st.markdown('<style>body{text-align:center;background-color:black;color:white;align-items:justify;display:flex;flex-direction:column;}</style>', unsafe_allow_html=True)
+st.title("Zyo: Solo Travel Like a Pro!")
+
+st.markdown("Zyo is a chatbot that will guide to explore Indonesia, even if you are alone!")
+#print("bot is live")
+message = st.text_input("You can ask me anything about Bali, or just share your feelings with me!")
+st.markdown('<div style="text-align: justify; font-size: 10pt"><b>Tips:</b> you can ask the FAQ of Bali, like how is the weather, do i need visa, and many more!</div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align: justify;></div>', unsafe_allow_html=True)
+ints = predict_class(message, model)
+res = getResponse(ints,intents)
+if res != "":
+    st.success("Zyo: {}".format(res))

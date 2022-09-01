@@ -14,7 +14,7 @@ words = []
 labels = []
 documents = []
 ignore_words = ['?', '!', '-', ',', '.']
-data_file = open('intentsZyo.json').read()
+data_file = open('intentsZyoLarge.json').read()
 intents = json.loads(data_file)
 for intent in intents['intents']:
     for pattern in intent['patterns']:
@@ -26,9 +26,9 @@ for intent in intents['intents']:
         # add to our labels list
         if intent['tag'] not in labels:
             labels.append(intent['tag'])
-#print(documents)
+print(documents)
 
-nltk.download('omw-1.4')
+#nltk.download('omw-1.4')
 lemmatizer = WordNetLemmatizer()
 words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words]
 words = sorted(list(set(words)))

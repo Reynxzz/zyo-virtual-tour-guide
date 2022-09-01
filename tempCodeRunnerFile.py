@@ -1,2 +1,2 @@
-print(train_x)
-# print(train_y)
+if intent['tag'] not in labels:
+        #     labels.append(intent['tag'])
