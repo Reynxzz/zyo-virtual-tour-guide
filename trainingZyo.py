@@ -28,7 +28,8 @@ for intent in intents['intents']:
             labels.append(intent['tag'])
 print(documents)
 
-#nltk.download('omw-1.4')
+nltk.download('omw-1.4')
+nltk.download('punkt')
 lemmatizer = WordNetLemmatizer()
 words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words]
 words = sorted(list(set(words)))
