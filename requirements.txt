@@ -95,6 +95,7 @@ tzlocal==4.2
 urllib3==1.26.11
 validators==0.20.0
 watchdog==2.1.9
+webbrowser==3.7
 Werkzeug==2.2.2
 wrapt==1.14.1
 yarg==0.1.9
