@@ -24,33 +24,34 @@ st.set_page_config(page_title="Zyo", page_icon="ZyoLogo.png", layout="centered",
 def load_data_hotel():
     df = pd.read_excel("datahotelZyo.xlsx")
     df['types'] = df.types.apply(lambda x: [i[1:-1] for i in str(x)[1:-1].split(", ")])
-    exploded_track_df = df.explode("types")
-    return exploded_track_df
+    exploded_track_df_hotel = df.explode("types")
+    return exploded_track_df_hotel
 
-tipe_names = ['Hotel', 'Resort']
-map_feats = ["gymSwimmingPoolFacility", "affordable", "restaurant", "beachView", "recreation", "soloFriendly"]
+tipehotel_names = ['hotel', 'resort']
+maphotel_feats = ["gymSwimmingPoolFacility", "affordable", "restaurant", "beachView", "recreation", "soloFriendly"]
 
-exploded_track_df = load_data_hotel()
+exploded_track_df_hotel = load_data_hotel()
 
 def n_neighbors_url_map(tipe, test_feat):
     tipe = tipe.lower()
-    tipe_data = exploded_track_df[(exploded_track_df["types"]==tipe)]
+    tipe_data = exploded_track_df_hotel[(exploded_track_df_hotel["types"]==tipe)]
     tipe_data = tipe_data.sort_values(by='popularity', ascending=False)[:500]
 
     neigh = NearestNeighbors()
-    neigh.fit(tipe_data[map_feats].to_numpy())
+    neigh.fit(tipe_data[maphotel_feats].to_numpy())
 
     n_neighbors = neigh.kneighbors([test_feat], n_neighbors=len(tipe_data), return_distance=False)[0]
 
     urls = tipe_data.iloc[n_neighbors]["url"].tolist()
-    maps = tipe_data.iloc[n_neighbors][map_feats].to_numpy()
-    return urls, maps
+    descriptions = tipe_data.iloc[n_neighbors]["description"].tolist()
+    maps = tipe_data.iloc[n_neighbors][maphotel_feats].to_numpy()
+    return urls, maps, descriptions
 
 def recommend_hotels():
-    st.write("What kind of places do you want me to recommend you?")
+    st.write("Do you want me to recommend you hotels or resorts?")
     tipe = st.radio(
         "",
-    tipe_names, index=tipe_names.index("Hotel"))
+    tipehotel_names, index=tipehotel_names.index("hotel"))
     st.markdown("")
 
     st.write("What kind of facilities do you like? (slide this based on your preferences)")
@@ -80,11 +81,13 @@ def recommend_hotels():
 
     tracks_per_page = 6
     test_feat = [gym, affordable, restaurant, beach, recreation, solofriendly]
-    urls, maps = n_neighbors_url_map(tipe, test_feat)
+    urls, maps, descriptions = n_neighbors_url_map(tipe, test_feat)
+    
 
     tracks = []
-    for url in urls:
-        track = """<div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=400&amp;height=400&amp;hl=en&amp;q={}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><h4 style="color:white;font-family:Arial">{}</h4></div><style>.mapouter.gmap_canvas.gmap_iframe </style></div>""".format(url,url)
+    for url,description in zip(urls, descriptions):
+        track = """<div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=400&amp;height=400&amp;hl=en&amp;q={}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><h4 style="color:white;font-family:Arial">{}</h4></div><style>.mapouter.gmap_canvas.gmap_iframe </style></div>
+        <div><h6 style="color:#d3dfe1;font-family:Arial;text-align:justify">{}</h6></div>""".format(url,url,description)
         tracks.append(track)
 
     if 'previous_inputs' not in st.session_state:
@@ -114,14 +117,14 @@ def recommend_hotels():
                     with col1:
                         components.html(
                             track,
-                            height=200,
+                            height=400,
                         )
             
                 else:
                     with col3:
                         components.html(
                             track,
-                            height=200,
+                            height=400,
                         )
         else:
             st.write("No places left to recommend")
@@ -140,6 +143,21 @@ tipe_names = ['cultural', 'nature']
 map_feats = ["affordable", "exotic", "unique", "culture","transportation", "soloFriendly"]
 
 exploded_track_df = load_data_destination()
+
+def n_neighbors_url_map_dest(tipe, test_feat):
+    tipe = tipe.lower()
+    tipe_data = exploded_track_df[(exploded_track_df["types"]==tipe)]
+    tipe_data = tipe_data.sort_values(by='popularity', ascending=False)[:500]
+
+    neigh = NearestNeighbors()
+    neigh.fit(tipe_data[map_feats].to_numpy())
+
+    n_neighbors = neigh.kneighbors([test_feat], n_neighbors=len(tipe_data), return_distance=False)[0]
+
+    urls = tipe_data.iloc[n_neighbors]["url"].tolist()
+    descriptions = tipe_data.iloc[n_neighbors]["description"].tolist()
+    maps = tipe_data.iloc[n_neighbors][map_feats].to_numpy()
+    return urls, maps, descriptions
 
 def recommend_destination():
     st.write("What kind of places do you want me to recommend you?")
@@ -175,11 +193,12 @@ def recommend_destination():
 
     tracks_per_page = 6
     test_feat = [affordable, exotic, unique, culture, transportation, solofriendly]
-    urls, maps = n_neighbors_url_map(tipe, test_feat)
+    urls, maps, descriptions = n_neighbors_url_map_dest(tipe, test_feat)
 
     tracks = []
-    for url in urls:
-        track = """<div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=400&amp;height=400&amp;hl=en&amp;q={}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><h4 style="color:white;font-family:Arial">{}</h4></div><style>.mapouter.gmap_canvas.gmap_iframe </style></div>""".format(url,url)
+    for url,description in zip(urls, descriptions):
+        track = """<div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=400&amp;height=400&amp;hl=en&amp;q={}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><h4 style="color:white;font-family:Arial">{}</h4></div><style>.mapouter.gmap_canvas.gmap_iframe </style></div>
+        <div><h6 style="color:#d3dfe1;font-family:Arial;text-align:justify">{}</h6></div>""".format(url,url,description)
         tracks.append(track)
 
     if 'previous_inputs' not in st.session_state:
@@ -209,14 +228,14 @@ def recommend_destination():
                     with col1:
                         components.html(
                             track,
-                            height=200,
+                            height=400,
                         )
             
                 else:
                     with col3:
                         components.html(
                             track,
-                            height=200,
+                            height=400,
                         )
         else:
             st.write("No places left to recommend")
